@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/tortilla2teams
+tortilla2teams.so
+tortilla2teams.dylib
+tortilla2teams.dll
+tortilla2teams.a
+tortilla2teams.lib
+tortilla2teams-test-*
+*.exe
+*.o
+*.obj
+*.lst

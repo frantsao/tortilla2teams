@@ -1,0 +1,5 @@
+{ "team": [ "Jaime", "Fran", "Pablo", "Álex", "Marcos" ],
+"invitations": 2,
+"notificationUrl": "http://127.0.0.1:9000/mockapi/test",
+"themecolor": "FF9A0B",
+"avatarUrl": "https://github.com/frantsao/tortilla2teams/raw/master/test/tortilla.png"}

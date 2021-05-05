@@ -1,0 +1,12 @@
+{
+	"authors": [
+		"Francisco Javier Tsao Santín"
+	],
+	"copyright": "Copyright © 2021, Francisco Javier Tsao Santín",
+	"dependencies": {
+		"vibe-d": "~>0.9.3"
+	},
+	"description": "A minimal icebreaker app sending messages to MS Teams",
+	"license": "AGPLv3",
+	"name": "tortilla2teams"
+}
