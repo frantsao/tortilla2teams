@@ -21,6 +21,12 @@ $ ./tortilla2teams
 ```
 By default, the service will listen at 127.0.0.1:9000 but you can override this value exporting TORTILLA\_HOST and TORTILLA\_PORT environment variables.
 
+You also can use the Docker image, vg.:
+```
+$ docker pull frantsao/tortilla2teams:latest
+$ docker run -p 9000:9000 -e TORTILLA_HOST=0.0.0.0 frantsao/tortilla2teams:latest
+```
+
 Then you can send a POST to /api/tortilla path with a json payload like [data.json](test/data.json). In that example, the hook will be sent to a test endpoint in the same tortilla service (promised if I continue working in this progam I'll improve testing):
 ```
 $ http 127.0.0.1:9000/api/tortilla < data.json 
