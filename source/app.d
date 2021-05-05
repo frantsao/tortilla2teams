@@ -79,6 +79,7 @@ class TortillaAPIService : TortillaAPI {
 		Json invitationCard = Json.emptyObject;
 		invitationCard["@type"] = "MessageCard";
 		invitationCard["@context"] = "http://schema.org/extensions";
+		invitationCard["summary"] = "Let's have some tortilla and talk about the weekend";
 		invitationCard["themecolor"]= themeColor;
 		invitationCard["sections"]=[section0.serializeToJson()];
 		// Would be nice serializing invitationCard from a struct but there is a issue with keys beginning with an '@'
@@ -104,15 +105,15 @@ class TortillaAPIService : TortillaAPI {
 	}
 }
 
-// API for mocking webhook endpoints. We can put MS Teams API 
+// API for sandboxing webhook endpoints. We can put MS Teams API
 //validations here, but we simply send "sections" to the app log
 
-@path("/mockapi/") interface MockAPI {
+@path("/sandbox/") interface SandboxAPI {
 	@safe Json addTest(Json sections);
 }
 
 
-class MockAPIService : MockAPI {
+class SandboxAPIService : SandboxAPI {
 	@safe Json addTest(Json sections)
 	{
 		return(sections);
@@ -124,10 +125,10 @@ void main()
 {
     auto router = new URLRouter;
     router.registerRestInterface(new TortillaAPIService);
-    router.get("/", (req, res) { res.redirect("/mockapi/test"); } );
+    router.get("/", (req, res) { res.redirect("/sandbox/test"); } );
     router.get("/api/", (req, res) { res.redirect("/api/tortilla"); } );
 
-    router.registerRestInterface(new MockAPIService);
+    router.registerRestInterface(new SandboxAPIService);
 
     auto host = environment.get("TORTILLA_HOST", "127.0.0.1");
     auto port = to!ushort(environment.get("TORTILLA_PORT", "9000"));
