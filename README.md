@@ -2,7 +2,6 @@
 ## Spanish omelette as a Service
 
 ### What?
-
 This is a minimal icebreaker app sending messages to MS Teams. You can send a json to the *tortilla* endpoint with a list of people and it will send an invitation to a MS Teams channel with some names of the list randomly elected.
 
 ### How to build it?
@@ -27,7 +26,7 @@ $ docker pull frantsao/tortilla2teams:latest
 $ docker run -p 9000:9000 -e TORTILLA_HOST=0.0.0.0 frantsao/tortilla2teams:latest
 ```
 
-Then you can send a POST to /api/tortilla path with a json payload like [data.json](test/data.json). In that example, the hook will be sent to a test endpoint in the same tortilla service (promised if I continue working in this progam I'll improve testing):
+Then you can send a POST to /api/tortilla path with a json payload like [data.json](test/data.json). With this configuration example, the hook will be sent to a test endpoint in the same tortilla service; you must change the notificationUrl with the webhook url you created in your MS Teams channel:
 ```
 $ http 127.0.0.1:9000/api/tortilla < data.json 
 HTTP/1.1 200 OK
@@ -41,7 +40,10 @@ Server: vibe.d/1.16.0
     "OK": "Invitations sent, prepare tortilla and coffee"
 }
 ```
-I sent the request in the example with the wonderful [HTTPie](https://httpie.io/).
+(promised if I continue working in this program I'll improve testing)
+
+I sent the request in the example using the wonderful [HTTPie](https://httpie.io/).
+
 ### Why?
 
 The idea came from a conversation with [@dortegau](https://github.com/dortegau) some weeks ago. We were looking to strengthen ties in our remote team at [idealista](https://idealista.com) via tiny social meetings. At that time I read [a post about D language programming](https://opensource.com/article/21/1/d-scripting). I had a problem and a tool that I wanted learning about it.
@@ -65,5 +67,5 @@ I want to believe it's an [MVP](https://en.wikipedia.org/wiki/Minimum_viable_pro
 ### About
 ![AGPLv3](https://img.shields.io/badge/License-AGPLv3-orange)
 
-This work is under AGPLv3 license (see see the [LICENSE](LICENSE) file) with the execption of the Spanish [omelette photo](test/tortilla.png) in the test directory. It has been created by Amasuela - Luis Lafuente Agudín - own job, CC BY-SA 4.0. The original file is at https://commons.wikimedia.org/w/index.php?curid=78914533 I made some cropping and scaling in order to use it as Teams avatar.
+This work is under AGPLv3 license (see see the [LICENSE](LICENSE) file) with the exception of the Spanish [omelette photo](test/tortilla.png) in the test directory. It has been created by Amasuela - Luis Lafuente Agudín - own job, CC BY-SA 4.0. The original file is at https://commons.wikimedia.org/w/index.php?curid=78914533 I made some cropping and scaling in order to use it as Teams avatar.
 
